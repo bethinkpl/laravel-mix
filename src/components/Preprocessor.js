@@ -92,7 +92,8 @@ class Preprocessor {
                     loaders = extractPlugin.extract({
                         fallback: 'style-loader',
                         use: loaders,
-                        remove: !hmr
+                        // This option breaks loading csses in HMR
+                        // remove: !hmr
                     });
 
                     return hmr ? ['style-loader', ...loaders] : loaders;
