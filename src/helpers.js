@@ -23,20 +23,24 @@ Object.defineProperty(Array.prototype, 'tap', {
         if (this.length) {
             callback(this);
         }
+
         return this;
     }
 });
 
 /**
- * Reject items from an array.
+ * Add tap to arrays.
  *
  * @param {mixed}    val
  * @param {Function} callback
  */
+Object.defineProperty(Array, 'wrap', {
+    value(value) {
+        if (Array.isArray(value)) {
+            return value;
+        }
 
-Object.defineProperty(Array.prototype, 'reject', {
-    value: function(callback) {
-        return this.filter(item => !callback(item));
+        return [value];
     }
 });
 
