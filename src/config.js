@@ -161,7 +161,7 @@ module.exports = function() {
          */
         terser: {
             cache: true,
-            parallel: true,
+            parallel: 7,
             sourceMap: true,
             terserOptions: {
                 compress: {
